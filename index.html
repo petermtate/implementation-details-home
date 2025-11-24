@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro Timer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="hero">
+        <h1>Pomodoro Timer</h1>
+        <p>Stay focused with 25 minute deep-work sprints and scheduled breaks.</p>
+      </header>
+
+      <section class="timer-card">
+        <div class="progress" aria-live="polite">
+          <div class="progress-circle">
+            <div class="time" id="time-display">25:00</div>
+          </div>
+        </div>
+        <div class="mode-indicator" id="mode-indicator">Focus Session</div>
+        <div class="controls">
+          <button id="start-pause-btn" class="primary">Start</button>
+          <button id="reset-btn">Reset</button>
+          <button id="skip-btn">Skip</button>
+        </div>
+        <div class="stats">
+          <span>Completed sessions: <strong id="session-count">0</strong></span>
+          <span>Up next: <strong id="next-mode">Short Break</strong></span>
+        </div>
+      </section>
+
+      <section class="settings-card">
+        <h2>Session Lengths (minutes)</h2>
+        <form id="settings-form">
+          <label>
+            Focus
+            <input
+              type="number"
+              min="1"
+              max="60"
+              id="focus-mins"
+              value="25"
+            />
+          </label>
+          <label>
+            Short break
+            <input
+              type="number"
+              min="1"
+              max="30"
+              id="short-mins"
+              value="5"
+            />
+          </label>
+          <label>
+            Long break
+            <input
+              type="number"
+              min="5"
+              max="60"
+              id="long-mins"
+              value="15"
+            />
+          </label>
+          <label>
+            Long break after
+            <input
+              type="number"
+              min="2"
+              max="8"
+              id="long-after"
+              value="4"
+            />
+            sessions
+          </label>
+          <button type="submit" class="primary ghost">Apply</button>
+        </form>
+        <p class="hint">
+          Changes take effect immediately when the timer is idle or on the next
+          cycle when already running.
+        </p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
